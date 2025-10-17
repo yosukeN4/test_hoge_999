@@ -90,4 +90,14 @@ jobs:
     needs: [run, tests]
     steps:
       - name: After all jobs
-        run: uv run main.py
+        run: python main.py
+
+  check_cli_exists:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check sam CLI exists
+        run: |
+          sam --version
+      - name: Check docker CLI exists
+        run: |
+          docker --version  
